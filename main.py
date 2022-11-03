@@ -1,24 +1,23 @@
-#
-# 	This program identifies and tags faces from the St. Mark's students and staff directory. 
-# 	Built for the internal use of the St. Mark's marketing & communications department to auto-tag photos on SmugMug.
-#
-#		Author: Ariel Cheng, Class of '25
-# 	Date: 10/25/2022
-#
+"""
+	This program identifies and tags faces from the St. Mark's students and staff directory. 
+	Built for the internal use of the St. Mark's marketing & communications department to auto-tag photos on SmugMug.
 
-# TODO use multiple photos as training data see wiki here https://github.com/ageitgey/face_recognition/wiki/Face-Recognition-Accuracy-Problems#question-face-recognition-works-well-with-european-individuals-but-overall-accuracy-is-lower-with-asian-individuals
-# TODO cross-reference no media list
-# TODO test accuracy of model and refine
+	Author: Ariel Cheng, Class of '25
+	Date: 10/25/2022
+
+"""
+
+# TODO figure out a way to quantify accuracy
+# FIXME ACCURACY ISSUES - identifies people as known when they are supposed to be unknown.
+
+# TODO make a function called every year so this code can be re-used
+# FIXME duplicate name problem?? what if future people have same names.
 # TODO make some form of UI
 
-# FIXME duplicate name problem??
 
-import os
-import shutil
 import face_recognition
-
-# clean data
-PATH = "./data/train/"
+import knn
 
 # constants
-TOLERANCE = 0.45
+pred = knn.predict("./data/test/naina-horning-1.jpeg", model_path="./model/knn")
+print(pred)
