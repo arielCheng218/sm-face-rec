@@ -1,13 +1,20 @@
 import os
 import shutil
 
+# Data cleanup utility code
+# Grouped same people together into one folder with their name.
+
 name_to_count = {}
+
+# Constants
+PATH = "./data/train/"
 
 for directory in os.listdir(PATH):
 	for file_name in os.listdir(f"{PATH}{directory}/"):
 		# Isolate person_name
 		person_name = file_name
 		if "2020" in file_name:
+			# Remove "2020" from person's name
 			first_ind_of_2 = file_name.find("2")
 			person_name = file_name[:first_ind_of_2]
 			if person_name[-1] == "." or person_name[-1] == "_":
